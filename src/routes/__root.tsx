@@ -6,12 +6,14 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useLocation,
+  useNavigate,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { ThemeProvider } from "../components/theme-provider";
+import { AuthProvider, useAuth } from "../lib/auth";
 
 function NotFoundComponent() {
   return (
@@ -78,25 +80,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CampaWeb · Gestión profesional de campamentos" },
-      { name: "description", content: "Plataforma SaaS para gestionar campamentos: turnos, participantes, grupos, actividades, incidencias e informes." },
+      { title: "CampaWeb · La carpeta del animador del siglo XXI" },
+      { name: "description", content: "Centro de operaciones del campamento. Planning, grupos, turnos y recursos en un solo lugar." },
       { name: "author", content: "CampaWeb" },
-      { property: "og:title", content: "CampaWeb · Gestión profesional de campamentos" },
-      { property: "og:description", content: "Plataforma SaaS para gestionar campamentos." },
+      { property: "og:title", content: "CampaWeb · La carpeta del animador del siglo XXI" },
+      { property: "og:description", content: "Centro de operaciones del campamento. Planning, grupos, turnos y recursos en un solo lugar." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: "@CampaWeb" },
+      { name: "twitter:title", content: "CampaWeb · La carpeta del animador del siglo XXI" },
+      { name: "twitter:description", content: "Centro de operaciones del campamento. Planning, grupos, turnos y recursos en un solo lugar." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/152c545d-28f2-46d5-a209-b4893839b14e/id-preview-f18129ab--2ec26d7d-b42c-4959-acee-9317eb22fddf.lovable.app-1780485335852.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/152c545d-28f2-46d5-a209-b4893839b14e/id-preview-f18129ab--2ec26d7d-b42c-4959-acee-9317eb22fddf.lovable.app-1780485335852.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
     ],
   }),
   shellComponent: RootShell,
@@ -124,10 +128,37 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </ThemeProvider>
+      <AuthProvider>
+        <AuthGate>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </AuthGate>
+      </AuthProvider>
     </QueryClientProvider>
   );
+}
+
+function AuthGate({ children }: { children: ReactNode }) {
+  const { user, ready } = useAuth();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!ready) return;
+    const isLogin = pathname === "/login";
+    if (!user && !isLogin) {
+      navigate({ to: "/login", replace: true });
+    } else if (user && isLogin) {
+      navigate({ to: user.role === "admin" ? "/admin" : "/", replace: true });
+    } else if (user && user.role === "animador" && pathname.startsWith("/admin")) {
+      navigate({ to: "/", replace: true });
+    }
+  }, [ready, user, pathname, navigate]);
+
+  if (!ready) return null;
+  const isLogin = pathname === "/login";
+  if (!user && !isLogin) return null;
+  if (user && user.role === "animador" && pathname.startsWith("/admin")) return null;
+
+  return <>{children}</>;
 }

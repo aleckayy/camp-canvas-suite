@@ -9,38 +9,443 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TurnosRouteImport } from './routes/turnos'
+import { Route as RecursosRouteImport } from './routes/recursos'
+import { Route as PlanningRouteImport } from './routes/planning'
+import { Route as ParticipantesRouteImport } from './routes/participantes'
+import { Route as MasRouteImport } from './routes/mas'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as IncidenciasRouteImport } from './routes/incidencias'
+import { Route as GruposRouteImport } from './routes/grupos'
+import { Route as AvisosRouteImport } from './routes/avisos'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as DiaDateRouteImport } from './routes/dia.$date'
+import { Route as AdminTurnosRouteImport } from './routes/admin/turnos'
+import { Route as AdminRecursosRouteImport } from './routes/admin/recursos'
+import { Route as AdminPlanningRouteImport } from './routes/admin/planning'
+import { Route as AdminParticipantesRouteImport } from './routes/admin/participantes'
+import { Route as AdminIncidenciasRouteImport } from './routes/admin/incidencias'
+import { Route as AdminGymkanasRouteImport } from './routes/admin/gymkanas'
+import { Route as AdminGruposRouteImport } from './routes/admin/grupos'
+import { Route as AdminGaleriaRouteImport } from './routes/admin/galeria'
+import { Route as AdminConfiguracionRouteImport } from './routes/admin/configuracion'
+import { Route as AdminCampamentoRouteImport } from './routes/admin/campamento'
+import { Route as AdminAvisosRouteImport } from './routes/admin/avisos'
+import { Route as AdminAnimadoresRouteImport } from './routes/admin/animadores'
+import { Route as AdminActividadesRouteImport } from './routes/admin/actividades'
+import { Route as ActividadIdRouteImport } from './routes/actividad.$id'
+import { Route as AdminDiaDateRouteImport } from './routes/admin/dia.$date'
 
+const TurnosRoute = TurnosRouteImport.update({
+  id: '/turnos',
+  path: '/turnos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecursosRoute = RecursosRouteImport.update({
+  id: '/recursos',
+  path: '/recursos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanningRoute = PlanningRouteImport.update({
+  id: '/planning',
+  path: '/planning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParticipantesRoute = ParticipantesRouteImport.update({
+  id: '/participantes',
+  path: '/participantes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MasRoute = MasRouteImport.update({
+  id: '/mas',
+  path: '/mas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IncidenciasRoute = IncidenciasRouteImport.update({
+  id: '/incidencias',
+  path: '/incidencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GruposRoute = GruposRouteImport.update({
+  id: '/grupos',
+  path: '/grupos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvisosRoute = AvisosRouteImport.update({
+  id: '/avisos',
+  path: '/avisos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiaDateRoute = DiaDateRouteImport.update({
+  id: '/dia/$date',
+  path: '/dia/$date',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTurnosRoute = AdminTurnosRouteImport.update({
+  id: '/admin/turnos',
+  path: '/admin/turnos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRecursosRoute = AdminRecursosRouteImport.update({
+  id: '/admin/recursos',
+  path: '/admin/recursos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPlanningRoute = AdminPlanningRouteImport.update({
+  id: '/admin/planning',
+  path: '/admin/planning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminParticipantesRoute = AdminParticipantesRouteImport.update({
+  id: '/admin/participantes',
+  path: '/admin/participantes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIncidenciasRoute = AdminIncidenciasRouteImport.update({
+  id: '/admin/incidencias',
+  path: '/admin/incidencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminGymkanasRoute = AdminGymkanasRouteImport.update({
+  id: '/admin/gymkanas',
+  path: '/admin/gymkanas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminGruposRoute = AdminGruposRouteImport.update({
+  id: '/admin/grupos',
+  path: '/admin/grupos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminGaleriaRoute = AdminGaleriaRouteImport.update({
+  id: '/admin/galeria',
+  path: '/admin/galeria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConfiguracionRoute = AdminConfiguracionRouteImport.update({
+  id: '/admin/configuracion',
+  path: '/admin/configuracion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCampamentoRoute = AdminCampamentoRouteImport.update({
+  id: '/admin/campamento',
+  path: '/admin/campamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAvisosRoute = AdminAvisosRouteImport.update({
+  id: '/admin/avisos',
+  path: '/admin/avisos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnimadoresRoute = AdminAnimadoresRouteImport.update({
+  id: '/admin/animadores',
+  path: '/admin/animadores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminActividadesRoute = AdminActividadesRouteImport.update({
+  id: '/admin/actividades',
+  path: '/admin/actividades',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActividadIdRoute = ActividadIdRouteImport.update({
+  id: '/actividad/$id',
+  path: '/actividad/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDiaDateRoute = AdminDiaDateRouteImport.update({
+  id: '/admin/dia/$date',
+  path: '/admin/dia/$date',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avisos': typeof AvisosRoute
+  '/grupos': typeof GruposRoute
+  '/incidencias': typeof IncidenciasRoute
+  '/login': typeof LoginRoute
+  '/mas': typeof MasRoute
+  '/participantes': typeof ParticipantesRoute
+  '/planning': typeof PlanningRoute
+  '/recursos': typeof RecursosRoute
+  '/turnos': typeof TurnosRoute
+  '/actividad/$id': typeof ActividadIdRoute
+  '/admin/actividades': typeof AdminActividadesRoute
+  '/admin/animadores': typeof AdminAnimadoresRoute
+  '/admin/avisos': typeof AdminAvisosRoute
+  '/admin/campamento': typeof AdminCampamentoRoute
+  '/admin/configuracion': typeof AdminConfiguracionRoute
+  '/admin/galeria': typeof AdminGaleriaRoute
+  '/admin/grupos': typeof AdminGruposRoute
+  '/admin/gymkanas': typeof AdminGymkanasRoute
+  '/admin/incidencias': typeof AdminIncidenciasRoute
+  '/admin/participantes': typeof AdminParticipantesRoute
+  '/admin/planning': typeof AdminPlanningRoute
+  '/admin/recursos': typeof AdminRecursosRoute
+  '/admin/turnos': typeof AdminTurnosRoute
+  '/dia/$date': typeof DiaDateRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/dia/$date': typeof AdminDiaDateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avisos': typeof AvisosRoute
+  '/grupos': typeof GruposRoute
+  '/incidencias': typeof IncidenciasRoute
+  '/login': typeof LoginRoute
+  '/mas': typeof MasRoute
+  '/participantes': typeof ParticipantesRoute
+  '/planning': typeof PlanningRoute
+  '/recursos': typeof RecursosRoute
+  '/turnos': typeof TurnosRoute
+  '/actividad/$id': typeof ActividadIdRoute
+  '/admin/actividades': typeof AdminActividadesRoute
+  '/admin/animadores': typeof AdminAnimadoresRoute
+  '/admin/avisos': typeof AdminAvisosRoute
+  '/admin/campamento': typeof AdminCampamentoRoute
+  '/admin/configuracion': typeof AdminConfiguracionRoute
+  '/admin/galeria': typeof AdminGaleriaRoute
+  '/admin/grupos': typeof AdminGruposRoute
+  '/admin/gymkanas': typeof AdminGymkanasRoute
+  '/admin/incidencias': typeof AdminIncidenciasRoute
+  '/admin/participantes': typeof AdminParticipantesRoute
+  '/admin/planning': typeof AdminPlanningRoute
+  '/admin/recursos': typeof AdminRecursosRoute
+  '/admin/turnos': typeof AdminTurnosRoute
+  '/dia/$date': typeof DiaDateRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/dia/$date': typeof AdminDiaDateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avisos': typeof AvisosRoute
+  '/grupos': typeof GruposRoute
+  '/incidencias': typeof IncidenciasRoute
+  '/login': typeof LoginRoute
+  '/mas': typeof MasRoute
+  '/participantes': typeof ParticipantesRoute
+  '/planning': typeof PlanningRoute
+  '/recursos': typeof RecursosRoute
+  '/turnos': typeof TurnosRoute
+  '/actividad/$id': typeof ActividadIdRoute
+  '/admin/actividades': typeof AdminActividadesRoute
+  '/admin/animadores': typeof AdminAnimadoresRoute
+  '/admin/avisos': typeof AdminAvisosRoute
+  '/admin/campamento': typeof AdminCampamentoRoute
+  '/admin/configuracion': typeof AdminConfiguracionRoute
+  '/admin/galeria': typeof AdminGaleriaRoute
+  '/admin/grupos': typeof AdminGruposRoute
+  '/admin/gymkanas': typeof AdminGymkanasRoute
+  '/admin/incidencias': typeof AdminIncidenciasRoute
+  '/admin/participantes': typeof AdminParticipantesRoute
+  '/admin/planning': typeof AdminPlanningRoute
+  '/admin/recursos': typeof AdminRecursosRoute
+  '/admin/turnos': typeof AdminTurnosRoute
+  '/dia/$date': typeof DiaDateRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/dia/$date': typeof AdminDiaDateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/avisos'
+    | '/grupos'
+    | '/incidencias'
+    | '/login'
+    | '/mas'
+    | '/participantes'
+    | '/planning'
+    | '/recursos'
+    | '/turnos'
+    | '/actividad/$id'
+    | '/admin/actividades'
+    | '/admin/animadores'
+    | '/admin/avisos'
+    | '/admin/campamento'
+    | '/admin/configuracion'
+    | '/admin/galeria'
+    | '/admin/grupos'
+    | '/admin/gymkanas'
+    | '/admin/incidencias'
+    | '/admin/participantes'
+    | '/admin/planning'
+    | '/admin/recursos'
+    | '/admin/turnos'
+    | '/dia/$date'
+    | '/admin/'
+    | '/admin/dia/$date'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/avisos'
+    | '/grupos'
+    | '/incidencias'
+    | '/login'
+    | '/mas'
+    | '/participantes'
+    | '/planning'
+    | '/recursos'
+    | '/turnos'
+    | '/actividad/$id'
+    | '/admin/actividades'
+    | '/admin/animadores'
+    | '/admin/avisos'
+    | '/admin/campamento'
+    | '/admin/configuracion'
+    | '/admin/galeria'
+    | '/admin/grupos'
+    | '/admin/gymkanas'
+    | '/admin/incidencias'
+    | '/admin/participantes'
+    | '/admin/planning'
+    | '/admin/recursos'
+    | '/admin/turnos'
+    | '/dia/$date'
+    | '/admin'
+    | '/admin/dia/$date'
+  id:
+    | '__root__'
+    | '/'
+    | '/avisos'
+    | '/grupos'
+    | '/incidencias'
+    | '/login'
+    | '/mas'
+    | '/participantes'
+    | '/planning'
+    | '/recursos'
+    | '/turnos'
+    | '/actividad/$id'
+    | '/admin/actividades'
+    | '/admin/animadores'
+    | '/admin/avisos'
+    | '/admin/campamento'
+    | '/admin/configuracion'
+    | '/admin/galeria'
+    | '/admin/grupos'
+    | '/admin/gymkanas'
+    | '/admin/incidencias'
+    | '/admin/participantes'
+    | '/admin/planning'
+    | '/admin/recursos'
+    | '/admin/turnos'
+    | '/dia/$date'
+    | '/admin/'
+    | '/admin/dia/$date'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisosRoute: typeof AvisosRoute
+  GruposRoute: typeof GruposRoute
+  IncidenciasRoute: typeof IncidenciasRoute
+  LoginRoute: typeof LoginRoute
+  MasRoute: typeof MasRoute
+  ParticipantesRoute: typeof ParticipantesRoute
+  PlanningRoute: typeof PlanningRoute
+  RecursosRoute: typeof RecursosRoute
+  TurnosRoute: typeof TurnosRoute
+  ActividadIdRoute: typeof ActividadIdRoute
+  AdminActividadesRoute: typeof AdminActividadesRoute
+  AdminAnimadoresRoute: typeof AdminAnimadoresRoute
+  AdminAvisosRoute: typeof AdminAvisosRoute
+  AdminCampamentoRoute: typeof AdminCampamentoRoute
+  AdminConfiguracionRoute: typeof AdminConfiguracionRoute
+  AdminGaleriaRoute: typeof AdminGaleriaRoute
+  AdminGruposRoute: typeof AdminGruposRoute
+  AdminGymkanasRoute: typeof AdminGymkanasRoute
+  AdminIncidenciasRoute: typeof AdminIncidenciasRoute
+  AdminParticipantesRoute: typeof AdminParticipantesRoute
+  AdminPlanningRoute: typeof AdminPlanningRoute
+  AdminRecursosRoute: typeof AdminRecursosRoute
+  AdminTurnosRoute: typeof AdminTurnosRoute
+  DiaDateRoute: typeof DiaDateRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminDiaDateRoute: typeof AdminDiaDateRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/turnos': {
+      id: '/turnos'
+      path: '/turnos'
+      fullPath: '/turnos'
+      preLoaderRoute: typeof TurnosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recursos': {
+      id: '/recursos'
+      path: '/recursos'
+      fullPath: '/recursos'
+      preLoaderRoute: typeof RecursosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planning': {
+      id: '/planning'
+      path: '/planning'
+      fullPath: '/planning'
+      preLoaderRoute: typeof PlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/participantes': {
+      id: '/participantes'
+      path: '/participantes'
+      fullPath: '/participantes'
+      preLoaderRoute: typeof ParticipantesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mas': {
+      id: '/mas'
+      path: '/mas'
+      fullPath: '/mas'
+      preLoaderRoute: typeof MasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/incidencias': {
+      id: '/incidencias'
+      path: '/incidencias'
+      fullPath: '/incidencias'
+      preLoaderRoute: typeof IncidenciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grupos': {
+      id: '/grupos'
+      path: '/grupos'
+      fullPath: '/grupos'
+      preLoaderRoute: typeof GruposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/avisos': {
+      id: '/avisos'
+      path: '/avisos'
+      fullPath: '/avisos'
+      preLoaderRoute: typeof AvisosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +453,167 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dia/$date': {
+      id: '/dia/$date'
+      path: '/dia/$date'
+      fullPath: '/dia/$date'
+      preLoaderRoute: typeof DiaDateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/turnos': {
+      id: '/admin/turnos'
+      path: '/admin/turnos'
+      fullPath: '/admin/turnos'
+      preLoaderRoute: typeof AdminTurnosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/recursos': {
+      id: '/admin/recursos'
+      path: '/admin/recursos'
+      fullPath: '/admin/recursos'
+      preLoaderRoute: typeof AdminRecursosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/planning': {
+      id: '/admin/planning'
+      path: '/admin/planning'
+      fullPath: '/admin/planning'
+      preLoaderRoute: typeof AdminPlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/participantes': {
+      id: '/admin/participantes'
+      path: '/admin/participantes'
+      fullPath: '/admin/participantes'
+      preLoaderRoute: typeof AdminParticipantesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/incidencias': {
+      id: '/admin/incidencias'
+      path: '/admin/incidencias'
+      fullPath: '/admin/incidencias'
+      preLoaderRoute: typeof AdminIncidenciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/gymkanas': {
+      id: '/admin/gymkanas'
+      path: '/admin/gymkanas'
+      fullPath: '/admin/gymkanas'
+      preLoaderRoute: typeof AdminGymkanasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/grupos': {
+      id: '/admin/grupos'
+      path: '/admin/grupos'
+      fullPath: '/admin/grupos'
+      preLoaderRoute: typeof AdminGruposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/galeria': {
+      id: '/admin/galeria'
+      path: '/admin/galeria'
+      fullPath: '/admin/galeria'
+      preLoaderRoute: typeof AdminGaleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/configuracion': {
+      id: '/admin/configuracion'
+      path: '/admin/configuracion'
+      fullPath: '/admin/configuracion'
+      preLoaderRoute: typeof AdminConfiguracionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/campamento': {
+      id: '/admin/campamento'
+      path: '/admin/campamento'
+      fullPath: '/admin/campamento'
+      preLoaderRoute: typeof AdminCampamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/avisos': {
+      id: '/admin/avisos'
+      path: '/admin/avisos'
+      fullPath: '/admin/avisos'
+      preLoaderRoute: typeof AdminAvisosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/animadores': {
+      id: '/admin/animadores'
+      path: '/admin/animadores'
+      fullPath: '/admin/animadores'
+      preLoaderRoute: typeof AdminAnimadoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/actividades': {
+      id: '/admin/actividades'
+      path: '/admin/actividades'
+      fullPath: '/admin/actividades'
+      preLoaderRoute: typeof AdminActividadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actividad/$id': {
+      id: '/actividad/$id'
+      path: '/actividad/$id'
+      fullPath: '/actividad/$id'
+      preLoaderRoute: typeof ActividadIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/dia/$date': {
+      id: '/admin/dia/$date'
+      path: '/admin/dia/$date'
+      fullPath: '/admin/dia/$date'
+      preLoaderRoute: typeof AdminDiaDateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisosRoute: AvisosRoute,
+  GruposRoute: GruposRoute,
+  IncidenciasRoute: IncidenciasRoute,
+  LoginRoute: LoginRoute,
+  MasRoute: MasRoute,
+  ParticipantesRoute: ParticipantesRoute,
+  PlanningRoute: PlanningRoute,
+  RecursosRoute: RecursosRoute,
+  TurnosRoute: TurnosRoute,
+  ActividadIdRoute: ActividadIdRoute,
+  AdminActividadesRoute: AdminActividadesRoute,
+  AdminAnimadoresRoute: AdminAnimadoresRoute,
+  AdminAvisosRoute: AdminAvisosRoute,
+  AdminCampamentoRoute: AdminCampamentoRoute,
+  AdminConfiguracionRoute: AdminConfiguracionRoute,
+  AdminGaleriaRoute: AdminGaleriaRoute,
+  AdminGruposRoute: AdminGruposRoute,
+  AdminGymkanasRoute: AdminGymkanasRoute,
+  AdminIncidenciasRoute: AdminIncidenciasRoute,
+  AdminParticipantesRoute: AdminParticipantesRoute,
+  AdminPlanningRoute: AdminPlanningRoute,
+  AdminRecursosRoute: AdminRecursosRoute,
+  AdminTurnosRoute: AdminTurnosRoute,
+  DiaDateRoute: DiaDateRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminDiaDateRoute: AdminDiaDateRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
