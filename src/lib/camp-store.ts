@@ -52,7 +52,7 @@ const STORAGE_KEY = "campaweb_data_v1";
 function seed(): CampState {
   return {
     camp: { ...initialCamp },
-    animators: [...initialAnimators] as Animator[],
+    animators: [...initialAnimators] as unknown as Animator[],
     groups: [...initialGroups],
     participants: [...initialParticipants],
     activities: [...initialActivities],
