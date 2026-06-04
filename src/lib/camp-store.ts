@@ -75,13 +75,17 @@ function load(): CampState {
   }
 }
 
-let state: CampState = load();
+let state: CampState | null = null;
+function ensureState(): CampState {
+  if (state === null) state = load();
+  return state;
+}
 const listeners = new Set<() => void>();
 
 function persist() {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(ensureState()));
   } catch {
     /* quota */
   }
@@ -100,11 +104,11 @@ function subscribe(l: () => void) {
 }
 
 function getSnapshot() {
-  return state;
+  return ensureState();
 }
 
 function setState(updater: (s: CampState) => CampState) {
-  state = updater(state);
+  state = updater(ensureState());
   emit();
 }
 
@@ -119,7 +123,7 @@ export function useCampStore(): CampState {
 
 // Direct snapshot read (for non-react helpers and admin actions)
 export function getCampState(): CampState {
-  return state;
+  return ensureState();
 }
 
 // ===== Actions =====
